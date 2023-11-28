@@ -4,58 +4,52 @@ import java.util.ArrayList;
 
 public class Cylinder extends Figure {
 
-    private ArrayList<Integer> Point;
+    private ArrayList<Integer> point;
     private int count;
-    public Cylinder(ArrayList<Integer> Point, int count) {
-        this.Point = Point;
+    public Cylinder(ArrayList<Integer> point, int count) {
+        this.point = point;
         this.count = count;
     }
 
     @Override
     public boolean isFigureValid() {
-        if (Point.size() == NINE && count == THREE) {
-            double vecx1 = Point.get(0) - Point.get(INDEX_SIX);
-            double vecx2 = Point.get(INDEX_THREE) - Point.get(INDEX_SIX);
-            double vecx3 = Point.get(INDEX_THREE) - Point.get(0);
+        if (point.size() == NINE && count == THREE) {
+            double vecx1 = point.get(0) - point.get(INDEX_SIX);
+            double vecx2 = point.get(INDEX_THREE) - point.get(INDEX_SIX);
+            double vecx3 = point.get(INDEX_THREE) - point.get(0);
 
-            double vecy1 = Point.get(1) - Point.get(INDEX_SEVEN);
-            double vecy2 = Point.get(INDEX_FOUR) - Point.get(INDEX_SEVEN);
-            double vecy3 = Point.get(INDEX_FOUR) - Point.get(1);
+            double vecy1 = point.get(1) - point.get(INDEX_SEVEN);
+            double vecy2 = point.get(INDEX_FOUR) - point.get(INDEX_SEVEN);
+            double vecy3 = point.get(INDEX_FOUR) - point.get(1);
 
-            double vecz1 = Point.get(INDEX_TWO) - Point.get(INDEX_EIGHT);
-            double vecz2 = Point.get(INDEX_FIVE) - Point.get(INDEX_EIGHT);
-            double vecz3 = Point.get(INDEX_FIVE) - Point.get(INDEX_TWO);
-            if ((vecx1 * vecx3 + vecy1 * vecy3 + vecz1 * vecz3) / (Math.sqrt(Math.pow(vecx1, DEGREE) + Math.pow(vecy1, DEGREE) + Math.pow(vecz1, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE))) == 0 || ((vecx2 * vecx3 + vecy2 * vecy3 + vecz2 * vecz3) / (Math.sqrt(Math.pow(vecx2, DEGREE) + Math.pow(vecy2, DEGREE) + Math.pow(vecz2, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE)))) == 0) {
-                return true;
-            }
+            double vecz1 = point.get(INDEX_TWO) - point.get(INDEX_EIGHT);
+            double vecz2 = point.get(INDEX_FIVE) - point.get(INDEX_EIGHT);
+            double vecz3 = point.get(INDEX_FIVE) - point.get(INDEX_TWO);
+
+            return  (vecx1 * vecx3 + vecy1 * vecy3 + vecz1 * vecz3) / (Math.sqrt(Math.pow(vecx1, DEGREE) + Math.pow(vecy1, DEGREE) + Math.pow(vecz1, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE))) == 0 || ((vecx2 * vecx3 + vecy2 * vecy3 + vecz2 * vecz3) / (Math.sqrt(Math.pow(vecx2, DEGREE) + Math.pow(vecy2, DEGREE) + Math.pow(vecz2, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE)))) == 0;
         }
         return false;
     }
 
     @Override
-    public void areaFigure() {
-        double vecx1 = Point.get(0) - Point.get(INDEX_SIX);
-        double vecx2 = Point.get(INDEX_THREE) - Point.get(INDEX_SIX);
-        double vecx3 = Point.get(INDEX_THREE) - Point.get(0);
+    public void calculateAreaFigure() {
+        double vecx1 = point.get(0) - point.get(INDEX_SIX);
+        double vecx2 = point.get(INDEX_THREE) - point.get(INDEX_SIX);
+        double vecx3 = point.get(INDEX_THREE) - point.get(0);
 
-        double vecy1 = Point.get(1) - Point.get(INDEX_SEVEN);
-        double vecy2 = Point.get(INDEX_FOUR) - Point.get(INDEX_SEVEN);
-        double vecy3 = Point.get(INDEX_FOUR) - Point.get(1);
+        double vecy1 = point.get(1) - point.get(INDEX_SEVEN);
+        double vecy2 = point.get(INDEX_FOUR) - point.get(INDEX_SEVEN);
+        double vecy3 = point.get(INDEX_FOUR) - point.get(1);
 
-        double vecz1 = Point.get(INDEX_TWO) - Point.get(INDEX_EIGHT);
-        double vecz2 = Point.get(INDEX_FIVE) - Point.get(INDEX_EIGHT);
-        double vecz3 = Point.get(INDEX_FIVE) - Point.get(INDEX_TWO);
+        double vecz1 = point.get(INDEX_TWO) - point.get(INDEX_EIGHT);
+        double vecz2 = point.get(INDEX_FIVE) - point.get(INDEX_EIGHT);
+        double vecz3 = point.get(INDEX_FIVE) - point.get(INDEX_TWO);
         if ((vecx1 * vecx3 + vecy1 * vecy3 + vecz1 * vecz3) / (Math.sqrt(Math.pow(vecx1, DEGREE) + Math.pow(vecy1, DEGREE) + Math.pow(vecz1, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE))) == 0) {
             double area = 2 * Math.PI * Math.sqrt(Math.pow(vecx1, DEGREE) + Math.pow(vecy1, DEGREE) + Math.pow(vecz1, DEGREE)) * (Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE)) + Math.sqrt(Math.pow(vecx1, DEGREE) + Math.pow(vecy1, DEGREE) + Math.pow(vecz1, DEGREE)));
-            System.out.printf("%.2f", area);
+            System.out.printf("The figure area %.2f" + "\n", area);
         } else if (((vecx2 * vecx3 + vecy2 * vecy3 + vecz2 * vecz3) / (Math.sqrt(Math.pow(vecx2, DEGREE) + Math.pow(vecy2, DEGREE) + Math.pow(vecz2, DEGREE)) * Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE)))) == 0) {
             double area = 2 * Math.PI * Math.sqrt(Math.pow(vecx2, DEGREE) + Math.pow(vecy2, DEGREE) + Math.pow(vecz2, DEGREE)) * (Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE)) + Math.sqrt(Math.pow(vecx2, DEGREE) + Math.pow(vecy2, DEGREE) + Math.pow(vecz2, DEGREE)));
-            System.out.printf("%.2f", area);
+            System.out.printf("The figure area %.2f" + "\n", area);
         }
-    }
-
-    @Override
-    public void perimetrFigure() {
-        System.out.println("The CYLINDER has no perimeter");
     }
 }

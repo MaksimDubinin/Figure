@@ -18,7 +18,7 @@ public class Main {
             Matcher m = figura.matcher(input);
             int count = 0;
             if (m.matches()) {
-                System.out.println("Введите коорбинаты фигуры.");
+                System.out.println("Введите координаты фигуры.");
                 boolean marker1 = true;
                 do {
                     String koor = sc.nextLine();
@@ -41,22 +41,21 @@ public class Main {
 
                     if (koor.equals("STOP_INPUT")) {
                         Figure figure = Figure.createNewFigure(input, Point, count);
-                        if (figure.isFigureValid() && !input.equals("FIGURE")) {
-                            System.out.println("The figure is valid");
-                            System.out.print("The figure area ");
-                            figure.areaFigure();
-                            System.out.print("\n" + "The figure perimeter ");
-                            figure.perimetrFigure();
-                            marker1 = false;
-                            marker = false;
-
-                        } else if (figure.isFigureValid() && input.equals("FIGURE")) {
-                            System.out.println("The figure is figyre");
-                            figure.areaFigure();
-                            figure.perimetrFigure();
-                            System.out.println("Введите фигуру.");
-                            marker1 = false;
-                            Point.clear();
+                        if (figure.isFigureValid()) {
+                            if (!input.equals("FIGURE")) {
+                                System.out.println("The figure is valid");
+                                figure.calculateAreaFigure();
+                                figure.calculatePerimetrFigure();
+                                marker1 = false;
+                                marker = false;
+                            } else {
+                                System.out.println("The figure is figyre");
+                                figure.calculateAreaFigure();
+                                figure.calculatePerimetrFigure();
+                                System.out.println("Введите фигуру.");
+                                marker1 = false;
+                                Point.clear();
+                            }
                         } else {
                             System.out.println("The figyre is invalid");
                             System.out.println("Введите фигуру.");

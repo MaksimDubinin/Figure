@@ -38,7 +38,7 @@ public class Figure {
         } else if (figure.equals("SPHERE")) {
             return new Sphere(Point, count);
         } else if (figure.equals("TRUNCATED_SPHERE")) {
-            return new Truncated_sphere(Point, count);
+            return new TruncatedSphere(Point, count);
         } else if (figure.equals("CYLINDER")) {
             return new Cylinder(Point, count);
         } else if (figure.equals("CONE")) {
@@ -46,15 +46,15 @@ public class Figure {
         } else if (figure.equals("FIGURE")) {
             return new Figure();
         }
-        return null;
+        return new Figure();
     }
     public boolean isFigureValid() {
         return true;
     }
-    public void areaFigure() {
+    public void calculateAreaFigure() {
         System.out.println("The figure has no area");
     }
-    public void perimetrFigure() {
+    public void calculatePerimetrFigure() {
         System.out.println("The figure has no perimeter");
     }
 }

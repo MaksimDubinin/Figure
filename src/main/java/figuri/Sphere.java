@@ -4,28 +4,20 @@ import java.util.ArrayList;
 
 public class Sphere extends Figure {
 
-    private ArrayList<Integer> Point;
+    private ArrayList<Integer> point;
     private int count;
 
-    public Sphere(ArrayList<Integer> Point, int count) {
-        this.Point = Point;
+    public Sphere(ArrayList<Integer> point, int count) {
+        this.point = point;
         this.count = count;
     }
     @Override
     public boolean isFigureValid() {
-        if (count == 2 && Point.size() == SIX && (Point.get(0) != Point.get(INDEX_THREE) || Point.get(1) != Point.get(INDEX_FOUR) || Point.get(INDEX_TWO) != Point.get(INDEX_FIVE))) {
-            return true;
-        }
-        return false;
+        return count == 2 && point.size() == SIX && (!point.get(0).equals(point.get(INDEX_THREE)) || !point.get(1).equals(point.get(INDEX_FOUR)) || !point.get(INDEX_TWO).equals(point.get(INDEX_FIVE)));
     }
 
     @Override
-    public void areaFigure() {
-        System.out.printf("%.2f", Math.PI * FOUR * (Math.pow(Point.get(0) - Point.get(INDEX_THREE), DEGREE) + Math.pow(Point.get(1) - Point.get(INDEX_FOUR), DEGREE) + Math.pow(Point.get(INDEX_TWO) - Point.get(INDEX_FIVE), DEGREE)));
-    }
-
-    @Override
-    public void perimetrFigure() {
-        System.out.print("Sphere has no perimetr.");
+    public void calculateAreaFigure() {
+        System.out.printf("The figure area %.2f" + "\n", Math.PI * FOUR * (Math.pow(point.get(0) - point.get(INDEX_THREE), DEGREE) + Math.pow(point.get(1) - point.get(INDEX_FOUR), DEGREE) + Math.pow(point.get(INDEX_TWO) - point.get(INDEX_FIVE), DEGREE)));
     }
 }
