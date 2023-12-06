@@ -12,28 +12,34 @@ public class Circle extends Figure {
     }
     @Override
     public  boolean isFigureValid() {
-        return ((point.size() == FOUR && (!point.get(0).equals(point.get(INDEX_TWO)) || !point.get(1).equals(point.get(INDEX_THREE)))) && count == DEGREE) || ((point.size() == SIX && (!point.get(0).equals(point.get(INDEX_THREE)) || !point.get(1).equals(point.get(INDEX_FOUR)) || !point.get(INDEX_TWO).equals(point.get(INDEX_FIVE)))) && count == DEGREE);
+        return ((point.size() == FOUR && (!point.get(0).equals(point.get(INDEX_TWO)) || !point.get(1).equals(point.get(INDEX_THREE))) && count == DEGREE)) || ((point.size() == SIX && (!point.get(0).equals(point.get(INDEX_THREE)) || !point.get(1).equals(point.get(INDEX_FOUR)) || !point.get(INDEX_TWO).equals(point.get(INDEX_FIVE)))) && count == DEGREE);
     }
 
     @Override
-    public void calculateAreaFigure() {
+    public double calculateAreaFigure() {
         if (point.size() == FOUR) {
             double radius = (Math.pow(point.get(0) - point.get(INDEX_TWO), DEGREE) + Math.pow(point.get(1) - point.get(INDEX_THREE), DEGREE));
             System.out.printf("The figure area %.2f" + "\n", Math.PI * radius);
+            return Math.PI * radius;
         } else if (point.size() == SIX) {
             double radius = (Math.pow(point.get(0) - point.get(INDEX_THREE), DEGREE) + Math.pow(point.get(1) - point.get(INDEX_FOUR), DEGREE) + Math.pow(point.get(INDEX_TWO) - point.get(INDEX_FIVE), DEGREE));
             System.out.printf("The figure area %.2f" + "\n", Math.PI * radius);
+            return Math.PI * radius;
         }
+        return -1;
     }
 
     @Override
-    public void calculatePerimetrFigure() {
+    public double calculatePerimetrFigure() {
         if (point.size() == FOUR) {
             double radius = (Math.pow(point.get(0) - point.get(INDEX_TWO), DEGREE) + Math.pow(point.get(1) - point.get(INDEX_THREE), DEGREE));
             System.out.printf("The figure perimeter %.2f" + "\n", Math.PI * 2 * Math.sqrt(radius));
+            return Math.PI * 2 * Math.sqrt(radius);
         } else if (point.size() == SIX) {
             double radius = (Math.pow(point.get(0) - point.get(INDEX_THREE), DEGREE) + Math.pow(point.get(1) - point.get(INDEX_FOUR), DEGREE) + Math.pow(point.get(INDEX_TWO) - point.get(INDEX_FIVE), DEGREE));
             System.out.printf("The figure perimeter %.2f" + "\n", Math.PI * 2 * Math.sqrt(radius));
+            return Math.PI * 2 * Math.sqrt(radius);
         }
+        return -1;
     }
 }

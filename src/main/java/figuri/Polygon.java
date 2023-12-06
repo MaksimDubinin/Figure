@@ -33,7 +33,7 @@ public class Polygon extends Figure {
     }
 
     @Override
-    public void calculateAreaFigure() {
+    public double calculateAreaFigure() {
         if (point.size() % 2 == 0) {
             double sum = 0;
             for (int i = 0; i < count - 1; ++i) {
@@ -41,11 +41,13 @@ public class Polygon extends Figure {
             }
             double res = 0.5 * Math.abs(sum + point.get(point.size() - 2) * point.get(1) - point.get(0) * point.get(point.size() - 1));
             System.out.printf("The figure area %.2f" + "\n", res);
+            return res;
         }
+        return -1;
     }
 
     @Override
-    public void calculatePerimetrFigure() {
+    public double calculatePerimetrFigure() {
         double area = 0;
         for (int i = 0; i < point.size() - 2; i += DEGREE) {
             double side = Math.sqrt(Math.pow(point.get(i) - point.get(i + DEGREE), DEGREE) + Math.pow(point.get(i + 1) - point.get(i + THREE), DEGREE));
@@ -53,5 +55,6 @@ public class Polygon extends Figure {
         }
         area += Math.sqrt(Math.pow(point.get(0) - point.get(point.size() - DEGREE), DEGREE) + Math.pow(point.get(1) - point.get(point.size() - 1), DEGREE));
         System.out.printf("The figure perimeter %.2f" + "\n", area);
+        return area;
     }
 }

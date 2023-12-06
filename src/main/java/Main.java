@@ -38,7 +38,6 @@ public class Main {
                             Point.add(Integer.parseInt(koord[i]));
                         }
                     }
-
                     if (koor.equals("STOP_INPUT")) {
                         Figure figure = Figure.createNewFigure(input, Point, count);
                         if (figure.isFigureValid()) {

@@ -51,10 +51,12 @@ public class Figure {
     public boolean isFigureValid() {
         return true;
     }
-    public void calculateAreaFigure() {
+    public double calculateAreaFigure() {
         System.out.println("The figure has no area");
+        return -1;
     }
-    public void calculatePerimetrFigure() {
+    public double calculatePerimetrFigure() {
         System.out.println("The figure has no perimeter");
+        return -1;
     }
 }

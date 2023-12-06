@@ -29,7 +29,7 @@ public class Cone extends Figure {
     }
 
     @Override
-    public void calculateAreaFigure() {
+    public double calculateAreaFigure() {
         int vecx1 = point.get(INDEX_THREE) - point.get(0);
         int vecy1 = point.get(INDEX_FOUR) - point.get(1);
         int vecz1 = point.get(INDEX_FIVE) - point.get(INDEX_TWO);
@@ -42,5 +42,6 @@ public class Cone extends Figure {
         double l = Math.sqrt(Math.pow(vecx3, DEGREE) + Math.pow(vecy3, DEGREE) + Math.pow(vecz3, DEGREE));
         double area = Math.PI * radius * (radius + l);
         System.out.printf("The figure area %.2f" + "\n", area);
+        return area;
     }
 }

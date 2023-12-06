@@ -31,7 +31,7 @@ public class TruncatedSphere extends Figure {
     }
 
     @Override
-    public void calculateAreaFigure() {
+    public double calculateAreaFigure() {
         int vecx1 = point.get(INDEX_THREE) - point.get(0);
         int vecy1 = point.get(INDEX_FOUR) - point.get(1);
         int vecz1 = point.get(INDEX_FIVE) - point.get(INDEX_TWO);
@@ -47,5 +47,6 @@ public class TruncatedSphere extends Figure {
 
         double s0 = s2 - s1 + s3;
         System.out.printf("The figure area %.2f" + "\n", s0);
+        return  s0;
     }
 }
