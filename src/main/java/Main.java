@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Введите название фигуры.");
         Scanner sc = new Scanner(System.in);
         do {
-            ArrayList <Integer> Point = new ArrayList<>();
+            ArrayList <Integer> point = new ArrayList<>();
             String input = sc.nextLine();
             Pattern figura = Pattern.compile("^(FIGURE|CIRCLE|SQUARE|RECTANGLE|PARALLELOGRAM|TRIANGLE|POLYGON|SPHERE|TRUNCATED_SPHERE|CYLINDER|CONE)$");
             Matcher m = figura.matcher(input);
@@ -32,14 +32,14 @@ public class Main {
                             flag = true;
                         }
                     }
-                    if (!flag && !koor.equals("STOP_INPUT")) {
+                    if (!flag && !koor.equals("STOP_INPUT") && (koord.length == 2 || koord.length == 3)) {
                         count += 1;
                         for (int i = 0; i < koord.length; ++i) {
-                            Point.add(Integer.parseInt(koord[i]));
+                            point.add(Integer.parseInt(koord[i]));
                         }
                     }
                     if (koor.equals("STOP_INPUT")) {
-                        Figure figure = Figure.createNewFigure(input, Point, count);
+                        Figure figure = Figure.createNewFigure(input, point, count);
                         if (figure.isFigureValid()) {
                             if (!input.equals("FIGURE")) {
                                 System.out.println("The figure is valid");
@@ -53,13 +53,13 @@ public class Main {
                                 figure.calculatePerimetrFigure();
                                 System.out.println("Введите фигуру.");
                                 marker1 = false;
-                                Point.clear();
+                                point.clear();
                             }
                         } else {
                             System.out.println("The figyre is invalid");
                             System.out.println("Введите фигуру.");
                             marker1 = false;
-                            Point.clear();
+                            point.clear();
                         }
                     }
                 } while (marker1);

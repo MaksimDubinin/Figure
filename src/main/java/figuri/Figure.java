@@ -22,27 +22,27 @@ public class Figure {
     public static final int INDEX_TEN = 10;
     public static final int INDEX_ELEVEN = 11;
 
-    public static Figure createNewFigure(String figure, ArrayList<Integer> Point, int count) {
+    public static Figure createNewFigure(String figure, ArrayList<Integer> point, int count) {
         if (figure.equals("CIRCLE")) {
-            return new Circle(Point, count);
+            return new Circle(point, count);
         } else if (figure.equals("SQUARE")) {
-            return new Square(Point, count);
+            return new Square(point, count);
         } else if (figure.equals("RECTANGLE")) {
-            return new Rectangle(Point, count);
+            return new Rectangle(point, count);
         } else if (figure.equals("PARALLELOGRAM")) {
-            return new Parallelogram(Point, count);
+            return new Parallelogram(point, count);
         } else if (figure.equals("TRIANGLE")) {
-            return new Triangle(Point, count);
+            return new Triangle(point, count);
         } else if (figure.equals("POLYGON")) {
-            return new Polygon(Point, count);
+            return new Polygon(point, count);
         } else if (figure.equals("SPHERE")) {
-            return new Sphere(Point, count);
+            return new Sphere(point, count);
         } else if (figure.equals("TRUNCATED_SPHERE")) {
-            return new TruncatedSphere(Point, count);
+            return new TruncatedSphere(point, count);
         } else if (figure.equals("CYLINDER")) {
-            return new Cylinder(Point, count);
+            return new Cylinder(point, count);
         } else if (figure.equals("CONE")) {
-            return new Cone(Point, count);
+            return new Cone(point, count);
         } else if (figure.equals("FIGURE")) {
             return new Figure();
         }

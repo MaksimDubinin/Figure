@@ -56,12 +56,12 @@ public class Circle_Test {
         point.add(0);
         point.add(0);
         point.add(0);
+        point.add(4);
         point.add(0);
-        point.add(2);
-        Circle circle = new Circle(point, 6);
+        Circle circle = new Circle(point, 2);
         double area = circle.calculateAreaFigure();
 
-        Assertions.assertEquals(12.566370614359172, area);
+        Assertions.assertEquals(50.26548245743669, area);
     }
 
     @Test
